@@ -45,12 +45,16 @@
                     </div>
                     <div class="row tips">
                         <label class="label-text">Select Tip %</label>
-                        <button>5%</button>
-                        <button>10%</button>
-                        <button>15%</button>
-                        <button>25%</button>
-                        <button>50%%</button>
-                        <button>Custom</button>
+                        <div class="buttons">
+                            <button class="button-tip">5%</button>
+                            <button class="button-tip">10%</button>
+                            <button class="button-tip">15%</button>
+                            <button class="button-tip">25%</button>
+                            <button class="button-tip">50%</button>
+                            <button class="button-tip" id="button-custom">
+                                Custom
+                            </button>
+                        </div>
                     </div>
                     <div class="row people">
                         <label class="label-text">Number of People</label>
@@ -64,10 +68,21 @@
                 </div>
                 <div class="right">
                     <div class="amounts">
-                        <div class="tip-amount">Tip Amount / Person</div>
-                        <div class="total-amount">Total / Person</div>
+                        <div class="amounts-row"></div>
+                        <label class="label-text tip-amount">
+                            Tip Amount <br />
+                            /person
+                        </label>
+                        <p id="tips">$ 0.00</p>
+                        <div class="amounts-row">
+                            <label class="label-text total-amount">
+                                Total <br />
+                                /person
+                            </label>
+                            <p id="total">$ 0.00</p>
+                        </div>
                     </div>
-                    <button>Reset</button>
+                    <button id="button-reset">Reset</button>
                 </div>
             </div>
         </div>

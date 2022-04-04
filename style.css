@@ -54,6 +54,9 @@ body {
     margin-right: 3rem;
 }
 .right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     width: 50%;
     background-color: var(--color-neutral-very-dark-cyan);
     border-radius: 1rem;
@@ -104,6 +107,34 @@ input[type="number"] {
     background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/icon-person_duknex.svg);
     background-repeat: no-repeat;
     background-position: 4% 50%;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.button-tip {
+    width: 30%;
+    cursor: pointer;
+    background-color: var(--color-neutral-very-dark-cyan);
+    color: var(--color-white);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: inherit;
+}
+.button-tip:focus,
+.selected {
+    background-color: var(--color-primary-strong-cyan);
+    color: var(--color-neutral-very-dark-cyan);
+}
+
+.amount-row {
+    color: var(--color-white);
 }
 
 /* MOBILE SETTINGS */

@@ -37,13 +37,13 @@ body {
 .logo {
     width: 100%;
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 .card {
     display: flex;
     justify-content: space-between;
     background-color: var(--color-white);
-    width: 70%;
+    width: 65%;
     padding: 3rem;
     border-radius: 2rem;
 }
@@ -64,7 +64,7 @@ body {
 }
 .row {
     display: grid;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 /* ELEMENTS */
@@ -73,7 +73,8 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.input-number {
+.input-number,
+#button-custom {
     background-color: var(--color-neutral-very-light-grayish-cyan);
     border: 2px solid var(--color-neutral-very-light-grayish-cyan);
     padding: 0.4rem;
@@ -87,7 +88,8 @@ body {
     cursor: pointer;
     outline: none;
 }
-.input-number:focus {
+.input-number:focus,
+#button-custom:focus {
     border: 2px solid var(--color-primary-strong-cyan);
 }
 input::-webkit-outer-spin-button,
@@ -133,8 +135,36 @@ input[type="number"] {
     color: var(--color-neutral-very-dark-cyan);
 }
 
-.amount-row {
-    color: var(--color-white);
+.amounts-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+}
+.amounts__label-text {
+    color: var(--color-neutral-light-grayish-cyan);
+    line-height: 1.2rem;
+}
+small {
+    color: var(--color-neutral-dark-grayish-cyan);
+}
+.sums {
+    color: var(--color-primary-strong-cyan);
+    font-size: 34px;
 }
 
-/* MOBILE SETTINGS */
+#button-reset {
+    background-color: var(--color-neutral-dark-grayish-cyan);
+    color: var(--color-neutral-very-dark-cyan);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+#button-reset:hover {
+    background-color: var(--color-primary-strong-cyan);
+}
+
+/* MOBILE SETTINGS */ ;

@@ -6,6 +6,7 @@
     --color-neutral-light-grayish-cyan: hsl(185, 41%, 84%);
     --color-neutral-very-light-grayish-cyan: hsl(189, 41%, 97%);
     --color-white: hsl(0, 0%, 100%);
+    --color-error: hsl(29, 99%, 42%);
 }
 *,
 *::before,
@@ -167,4 +168,7 @@ small {
     background-color: var(--color-primary-strong-cyan);
 }
 
+.error {
+    border: 2px solid var(--color-error);
+}
 /* MOBILE SETTINGS */ ;

@@ -24,10 +24,23 @@ body {
     /* 1rem=10px; 10px/16px default size=62.5% */
     line-height: 1.5rem;
     font-weight: 700;
-    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1648627825/FrontendMentor/bg-intro-desktop_evcn0o.png);
-    background-color: var(--color-primary-red);
+    background-color: var(--color-primary-strong-cyan);
 }
 /* MAIN ELEMENTS */
+.wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+}
+.logo {
+    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/logo_f9p7ap.svg);
+    background-repeat: no-repeat;
+    width: 20%;
+}
+.card {
+    width: 70%;
+}
 
 /* SMALL ELEMENTS */
 

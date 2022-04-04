@@ -23,16 +23,38 @@
         <title>Frontend Mentor | Tip calculator app</title>
     </head>
     <body>
-        Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount
-        / person Total / person Reset
-
-        <div class="attribution">
-            Challenge by
-            <a
-                href="https://www.frontendmentor.io?ref=challenge"
-                target="_blank"
-                >Frontend Mentor</a
-            >. Coded by <a href="#">Your Name Here</a>.
+        <div class="wrapper">
+            <div class="logo">
+                <div></div>
+            </div>
+            <div class="card">
+                <div class="left">
+                    <div class="bill">
+                        <label>Bill</label>
+                        <input type="number" />
+                    </div>
+                    <div class="tips">
+                        <label>Select Tip %</label>
+                        <button>5%</button>
+                        <button>10%</button>
+                        <button>15%</button>
+                        <button>25%</button>
+                        <button>50%%</button>
+                        <button>Custom</button>
+                    </div>
+                    <div class="people">
+                        <label>Number of People</label>
+                        <select name="number" id="number"></select>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="amounts">
+                        <div class="tip-amount">Tip Amount / Person</div>
+                        <div class="total-amount">Total / Person</div>
+                    </div>
+                    <button>Reset</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>

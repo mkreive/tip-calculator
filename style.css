@@ -24,26 +24,41 @@ body {
     /* 1rem=10px; 10px/16px default size=62.5% */
     line-height: 1.5rem;
     font-weight: 700;
-    background-color: var(--color-primary-strong-cyan);
+    background-color: var(--color-neutral-light-grayish-cyan);
 }
-/* MAIN ELEMENTS */
+/* MAIN BLOCKS */
 .wrapper {
-    width: 100vw;
     display: flex;
     flex-direction: column;
-    padding: 10rem;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 5rem;
 }
 .logo {
-    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/logo_f9p7ap.svg);
-    background-repeat: no-repeat;
-    width: 20%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5rem;
 }
 .card {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-white);
     width: 70%;
+    padding: 3rem;
+    border-radius: 2rem;
 }
 
-/* SMALL ELEMENTS */
+/* SMALL BLOCKS */
+.left {
+    width: 50%;
+}
+.right {
+    width: 50%;
 
-/* HELPERS */
+    background-color: var(--color-neutral-very-dark-cyan);
+}
+
+/* ELEMENTS */
 
 /* MOBILE SETTINGS */

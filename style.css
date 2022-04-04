@@ -20,8 +20,7 @@ body {
     height: 100vh;
     min-height: 100vh;
     font-family: "Space Mono", monospace;
-    font-size: 62.5%;
-    /* 1rem=10px; 10px/16px default size=62.5% */
+    font-size: 16px;
     line-height: 1.5rem;
     font-weight: 700;
     background-color: var(--color-neutral-light-grayish-cyan);
@@ -52,13 +51,59 @@ body {
 /* SMALL BLOCKS */
 .left {
     width: 50%;
+    margin-right: 3rem;
 }
 .right {
     width: 50%;
-
     background-color: var(--color-neutral-very-dark-cyan);
+    border-radius: 1rem;
+    padding: 3rem;
+}
+.row {
+    display: grid;
+    margin-bottom: 3rem;
 }
 
 /* ELEMENTS */
+.label-text {
+    color: var(--color-neutral-dark-grayish-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.input-number {
+    background-color: var(--color-neutral-very-light-grayish-cyan);
+    border: 2px solid var(--color-neutral-very-light-grayish-cyan);
+    padding: 0.4rem;
+    padding-right: 1rem;
+    border-radius: 0.4rem;
+    text-align: right;
+    font-size: 24px;
+    font-weight: inherit;
+    color: var(--color-neutral-very-dark-cyan);
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+}
+.input-number:focus {
+    border: 2px solid var(--color-primary-strong-cyan);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.money {
+    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/icon-dollar_ewwrhe.svg);
+    background-repeat: no-repeat;
+    background-position: 4% 50%;
+}
+.person {
+    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/icon-person_duknex.svg);
+    background-repeat: no-repeat;
+    background-position: 4% 50%;
+}
 
 /* MOBILE SETTINGS */

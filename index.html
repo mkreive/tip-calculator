@@ -34,12 +34,17 @@
             </div>
             <div class="card">
                 <div class="left">
-                    <div class="bill">
-                        <label>Bill</label>
-                        <input type="number" />
+                    <div class="row bill">
+                        <label class="label-text">Bill</label>
+                        <input
+                            class="input-number money"
+                            type="number"
+                            min="1"
+                            placeholder="0"
+                        />
                     </div>
-                    <div class="tips">
-                        <label>Select Tip %</label>
+                    <div class="row tips">
+                        <label class="label-text">Select Tip %</label>
                         <button>5%</button>
                         <button>10%</button>
                         <button>15%</button>
@@ -47,9 +52,14 @@
                         <button>50%%</button>
                         <button>Custom</button>
                     </div>
-                    <div class="people">
-                        <label>Number of People</label>
-                        <select name="number" id="number"></select>
+                    <div class="row people">
+                        <label class="label-text">Number of People</label>
+                        <input
+                            class="input-number person"
+                            type="number"
+                            min="1"
+                            placeholder="0"
+                        />
                     </div>
                 </div>
                 <div class="right">

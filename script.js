@@ -10,6 +10,12 @@ const totalSumElement = document.getElementById("total");
 const resetButton = document.getElementById("button-reset");
 
 //  CODE
+const renderSpan = function (parentEl) {
+    let inputErrorMessage = document.createElement("span");
+    inputErrorMessage.classList.add("error-message");
+    inputErrorMessage.textContent = "Can't be zero";
+    parentEl.parentNode.prepend(inputErrorMessage);
+};
 
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
@@ -20,12 +26,18 @@ tipElement.forEach((button) => {
         let totalAmountPerPerson;
 
         if (!personNumberElement.value && !billElement.value) {
-            personNumberElement.classList.add("error");
-            billElement.classList.add("error");
-        } else if (!billElement.value) {
-            billElement.classList.add("error");
-        } else if (!personNumberElement.value) {
-            personNumberElement.classList.add("error");
+            // personNumberElement.classList.add("error");
+            // billElement.classList.add("error");
+            // renderSpan(personNumberElement);
+            // renderSpan(billElement);
+            // } else if (!billElement.value) {
+            //     billElement.classList.add("error");
+            //     personNumberElement.classList.remove("error");
+            //     renderSpan(billElement);
+            // } else if (!personNumberElement.value) {
+            //     billElement.classList.remove("error");
+            //     personNumberElement.classList.add("error");
+            //     renderSpan(personNumberElement);
         } else {
             personNumberElement.classList.remove("error");
             billElement.classList.remove("error");
@@ -44,6 +56,8 @@ tipElement.forEach((button) => {
 });
 
 resetButton.addEventListener("click", function () {
-    totalSumElement.innerText = "";
-    tipsCalculatedElement.innerText = "";
+    totalSumElement.innerText = "$0.00";
+    tipsCalculatedElement.innerText = "$0.00";
+    billElement.value = "0";
+    personNumberElement.value = "0";
 });

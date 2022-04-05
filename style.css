@@ -171,4 +171,13 @@ small {
 .error {
     border: 2px solid var(--color-error);
 }
+.error-message {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    color: var(--color-error);
+    margin-bottom: -2rem;
+}
+
 /* MOBILE SETTINGS */ ;

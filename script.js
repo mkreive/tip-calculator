@@ -10,19 +10,6 @@ const totalSumElement = document.getElementById("total");
 const resetButton = document.getElementById("button-reset");
 
 //  CODE
-const calculate = function (e) {
-    let bill = +billElement.value.trim();
-    let personCount = +personNumberElement.value.trim();
-    let selectedTips = +(e.target.value.replace("%", "") / 100);
-
-    let tips = parseFloat((bill * selectedTips) / personCount).toFixed(2);
-    let total = parseFloat((bill * selectedTips + bill) / personCount).toFixed(
-        2
-    );
-
-    tipsCalculatedElement.innerText = "$" + tips;
-    totalSumElement.innerText = "$" + total;
-};
 
 const renderSpan = function (parentEl) {
     let inputErrorMessage = document.createElement("span");
@@ -33,6 +20,10 @@ const renderSpan = function (parentEl) {
 
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
+        let bill = +billElement.value.trim();
+        let personCount = +personNumberElement.value.trim();
+        let selectedTips = +e.target.innerText.replace("%", "") / 100;
+
         if (!personNumberElement.value && !billElement.value) {
             personNumberElement.classList.add("error");
             billElement.classList.add("error");
@@ -51,14 +42,23 @@ tipElement.forEach((button) => {
         } else {
             personNumberElement.classList.remove("error");
             billElement.classList.remove("error");
-            calculate(e);
+
+            let tips = parseFloat((bill * selectedTips) / personCount).toFixed(
+                2
+            );
+            let total = parseFloat(
+                (bill * selectedTips + bill) / personCount
+            ).toFixed(2);
+
+            tipsCalculatedElement.innerText = "$" + tips;
+            totalSumElement.innerText = "$" + total;
         }
     });
 });
 
-customTipElement.addEventListener("input", function (e) {
-    calculate(e);
-});
+// customTipElement.addEventListener("input", function (e) {
+//     calculate(e);
+// });
 
 resetButton.addEventListener("click", function () {
     totalSumElement.innerText = "$0.00";

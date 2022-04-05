@@ -180,4 +180,12 @@ small {
     margin-bottom: -2rem;
 }
 
-/* MOBILE SETTINGS */ ;
+/* MOBILE SETTINGS */
+
+@media (max-width: 375px) {
+}
+
+@media (max-width: 1400px) {
+}
+@media (max-width: 1000px) {
+}

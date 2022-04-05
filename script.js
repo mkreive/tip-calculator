@@ -16,18 +16,34 @@ tipElement.forEach((button) => {
         let tipsSelected = +e.target.innerText.replace("%", "") / 100;
         let bill = billElement.value.trim();
         let personCount = personNumberElement.value.trim();
-        let tips;
-        let totalAmount;
+        let tipsPerPerson;
+        let totalAmountPerPerson;
 
-        if (!personNumberElement.value) {
+        if (!personNumberElement.value && !billElement.value) {
             personNumberElement.classList.add("error");
+            billElement.classList.add("error");
         } else if (!billElement.value) {
             billElement.classList.add("error");
+        } else if (!personNumberElement.value) {
+            personNumberElement.classList.add("error");
         } else {
-            tips = parseFloat(bill * tipsSelected).toFixed(2);
-            totalAmount = +bill + +tips;
-            console.log(tips);
-            console.log(totalAmount);
+            personNumberElement.classList.remove("error");
+            billElement.classList.remove("error");
+
+            let tips = bill * tipsSelected;
+            tipsPerPerson = parseFloat(tips / +personCount).toFixed(2);
+            let totalAmount = +bill + +tips;
+            totalAmountPerPerson = parseFloat(
+                totalAmount / +personCount
+            ).toFixed(2);
+
+            tipsCalculatedElement.innerText = "$" + tipsPerPerson;
+            totalSumElement.innerText = "$" + totalAmountPerPerson;
         }
     });
+});
+
+resetButton.addEventListener("click", function () {
+    totalSumElement.innerText = "";
+    tipsCalculatedElement.innerText = "";
 });

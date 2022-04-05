@@ -12,22 +12,22 @@ const resetButton = document.getElementById("button-reset");
 //  CODE
 
 tipElement.forEach((button) => {
-    let bill = billElement.value.trim("");
-    let tips;
-    let totalAmount;
-
     button.addEventListener("click", function (e) {
         let tipsSelected = +e.target.innerText.replace("%", "") / 100;
-        console.log(tipsSelected);
+        let bill = billElement.value.trim();
+        let personCount = personNumberElement.value.trim();
+        let tips;
+        let totalAmount;
+
         if (!personNumberElement.value) {
             personNumberElement.classList.add("error");
         } else if (!billElement.value) {
             billElement.classList.add("error");
         } else {
-            tips = bill * tipsSelected;
-            totalAmount = bill + tips;
-            tipsCalculatedElement.innerText = tips;
-            totalSumElement.innerText = totalAmount;
+            tips = parseFloat(bill * tipsSelected).toFixed(2);
+            totalAmount = +bill + +tips;
+            console.log(tips);
+            console.log(totalAmount);
         }
     });
 });

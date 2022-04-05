@@ -18,47 +18,53 @@ const renderSpan = function (parentEl) {
     parentEl.parentNode.prepend(inputErrorMessage);
 };
 
+const calculate = function (e) {
+    let bill = +billElement.value.trim();
+    let personCount = +personNumberElement.value.trim();
+    let selectedTips = +e.target.innerText.replace("%", "") / 100;
+
+    if (e.type === "input") {
+        selectedTips = +e.target.value.trim() / 100;
+    }
+
+    if (!personNumberElement.value && !billElement.value) {
+        personNumberElement.classList.add("error");
+        billElement.classList.add("error");
+        renderSpan(personNumberElement);
+        renderSpan(billElement);
+    } else if (!billElement.value) {
+        personNumberElement.classList.remove("error");
+        personNumberElement.parentNode.firstChild.remove();
+        billElement.classList.add("error");
+        renderSpan(billElement);
+    } else if (!personNumberElement.value) {
+        billElement.classList.remove("error");
+        billElement.parentNode.firstChild.remove();
+        personNumberElement.classList.add("error");
+        renderSpan(personNumberElement);
+    } else {
+        personNumberElement.classList.remove("error");
+        billElement.classList.remove("error");
+
+        let tips = parseFloat((bill * selectedTips) / personCount).toFixed(2);
+        let total = parseFloat(
+            (bill * selectedTips + bill) / personCount
+        ).toFixed(2);
+
+        tipsCalculatedElement.innerText = "$" + tips;
+        totalSumElement.innerText = "$" + total;
+    }
+};
+
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
-        let bill = +billElement.value.trim();
-        let personCount = +personNumberElement.value.trim();
-        let selectedTips = +e.target.innerText.replace("%", "") / 100;
-
-        if (!personNumberElement.value && !billElement.value) {
-            personNumberElement.classList.add("error");
-            billElement.classList.add("error");
-            renderSpan(personNumberElement);
-            renderSpan(billElement);
-        } else if (!billElement.value) {
-            personNumberElement.classList.remove("error");
-            personNumberElement.parentNode.firstChild.remove();
-            billElement.classList.add("error");
-            renderSpan(billElement);
-        } else if (!personNumberElement.value) {
-            billElement.classList.remove("error");
-            billElement.parentNode.firstChild.remove();
-            personNumberElement.classList.add("error");
-            renderSpan(personNumberElement);
-        } else {
-            personNumberElement.classList.remove("error");
-            billElement.classList.remove("error");
-
-            let tips = parseFloat((bill * selectedTips) / personCount).toFixed(
-                2
-            );
-            let total = parseFloat(
-                (bill * selectedTips + bill) / personCount
-            ).toFixed(2);
-
-            tipsCalculatedElement.innerText = "$" + tips;
-            totalSumElement.innerText = "$" + total;
-        }
+        calculate(e);
     });
 });
 
-// customTipElement.addEventListener("input", function (e) {
-//     calculate(e);
-// });
+customTipElement.addEventListener("input", function (e) {
+    calculate(e);
+});
 
 resetButton.addEventListener("click", function () {
     totalSumElement.innerText = "$0.00";

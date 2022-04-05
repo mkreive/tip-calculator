@@ -181,11 +181,106 @@ small {
 }
 
 /* MOBILE SETTINGS */
-
-@media (max-width: 375px) {
-}
-
 @media (max-width: 1400px) {
+    .wrapper {
+        padding: 3rem;
+    }
+    .logo {
+        margin-bottom: 2rem;
+    }
+    .card {
+        width: 85%;
+    }
 }
 @media (max-width: 1000px) {
+    body {
+        font-size: 14px;
+        line-height: 1.3rem;
+    }
+
+    .wrapper {
+        padding: 2rem;
+    }
+    .logo {
+        margin-bottom: 2rem;
+    }
+    .card {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    /* SMALL BLOCKS */
+    .left {
+        margin-right: 2rem;
+    }
+    .right {
+        padding: 2rem;
+    }
+    .row {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-number,
+    #button-custom {
+        font-size: 18px;
+    }
+
+    .button-tip {
+        font-size: 18px;
+    }
+    .sums {
+        font-size: 24px;
+    }
+
+    #button-reset {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        font-size: 14px;
+        line-height: 1.3rem;
+    }
+    .wrapper {
+        padding: 0;
+    }
+    .logo {
+        margin: 3rem;
+    }
+    .card {
+        flex-direction: column;
+        width: 95%;
+        padding: 2rem;
+    }
+
+    .left {
+        width: 100%;
+        margin-right: 0;
+    }
+    .right {
+        width: 100%;
+        padding: 2rem;
+    }
+    .row {
+        margin-bottom: 3rem;
+    }
+
+    .input-number,
+    #button-custom {
+        font-size: 20px;
+    }
+
+    .button-tip {
+        width: 30%;
+        font-size: 20px;
+    }
+
+    .sums {
+        font-size: 28px;
+    }
+
+    #button-reset {
+        font-size: 18px;
+    }
 }

@@ -33,12 +33,14 @@ const calculate = function (e) {
     tips = parseFloat((bill * selectedTips) / personCount).toFixed(2);
     total = parseFloat((bill * selectedTips + bill) / personCount).toFixed(2);
 
-    return tips, total;
+    tipsCalculatedElement.innerText = "$" + tips;
+    totalSumElement.innerText = "$" + total;
 };
 
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
         let validInput = false;
+        customTipElement.value = "";
 
         inputsEl.forEach((input) => {
             if (input.value === "" || !input || input.value < 0) {
@@ -47,15 +49,17 @@ tipElement.forEach((button) => {
                 renderSpan(input);
             } else {
                 validInput = true;
+                if (input.classList.contains("error")) {
+                    input.classList.remove("error");
+                    let parent = input.parentNode;
+                    parent.removeChild(parent.firstElementChild);
+                }
             }
         });
 
         if (validInput) {
             calculate(e);
-            tipsCalculatedElement.innerText = "$" + tips;
-            totalSumElement.innerText = "$" + total;
         } else if (!validInput) {
-            // renderSpan(inputsEl);
         }
     });
 });
@@ -64,7 +68,7 @@ customTipElement.addEventListener("input", function (e) {
     let value = parseInt(this.value);
     if (value < 1) {
         this.value = 1;
-    } else if (this.value > 1000) {
+    } else if (value > 1000) {
         this.value = 1000;
     } else {
         calculate(e);
@@ -76,24 +80,7 @@ resetButton.addEventListener("click", function (e) {
     tipsCalculatedElement.innerText = "$0.00";
     billElement.value = "0";
     personNumberElement.value = "0";
-    console.log(e);
+    customTipElement.value = "";
+    tips = 0;
+    total = 0;
 });
-
-// if (personNumberElement.value === "" && billElement.value === "") {
-//     personNumberElement.classList.add("error");
-//     billElement.classList.add("error");
-//     renderSpan(personNumberElement);
-//     renderSpan(billElement);
-// } else if (!billElement.value) {
-//     personNumberElement.classList.remove("error");
-//     personNumberElement.parentNode.firstChild.remove();
-//     billElement.classList.add("error");
-//     renderSpan(billElement);
-// } else if (!personNumberElement.value) {
-//     billElement.classList.remove("error");
-//     billElement.parentNode.firstChild.remove();
-//     personNumberElement.classList.add("error");
-//     renderSpan(personNumberElement);
-// } else {
-//     personNumberElement.classList.remove("error");
-//     billElement.classList.remove("error")}

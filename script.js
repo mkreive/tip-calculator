@@ -10,7 +10,7 @@ const totalSumElement = document.getElementById("total");
 const resetButton = document.getElementById("button-reset");
 const inputsEl = document.querySelectorAll(".input-number");
 
-//  CODE
+//  FUNCTIONS
 let tips;
 let total;
 
@@ -36,6 +36,18 @@ const calculate = function (e) {
     tipsCalculatedElement.innerText = "$" + tips;
     totalSumElement.innerText = "$" + total;
 };
+
+// LISTENERS
+inputsEl.forEach((input) => {
+    input.addEventListener("input", function (e) {
+        let value = parseInt(this.value);
+        if (value > 999999999999999) {
+            this.value = 999999999999999;
+        } else if (value < 0) {
+            this.value = 0.01;
+        }
+    });
+});
 
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
@@ -66,10 +78,10 @@ tipElement.forEach((button) => {
 
 customTipElement.addEventListener("input", function (e) {
     let value = parseInt(this.value);
-    if (value < 1) {
+    if (value < 0) {
         this.value = 1;
-    } else if (value > 1000) {
-        this.value = 1000;
+    } else if (value > 10000) {
+        this.value = 10000;
     } else {
         calculate(e);
     }
@@ -78,8 +90,8 @@ customTipElement.addEventListener("input", function (e) {
 resetButton.addEventListener("click", function (e) {
     totalSumElement.innerText = "$0.00";
     tipsCalculatedElement.innerText = "$0.00";
-    billElement.value = "0";
-    personNumberElement.value = "0";
+    billElement.value = "";
+    personNumberElement.value = "";
     customTipElement.value = "";
     tips = 0;
     total = 0;

@@ -106,12 +106,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-.money {
+#bill {
     background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/icon-dollar_ewwrhe.svg);
     background-repeat: no-repeat;
     background-position: 4% 50%;
 }
-.person {
+#persons {
     background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1649054262/FrontendMentor/icon-person_duknex.svg);
     background-repeat: no-repeat;
     background-position: 4% 50%;

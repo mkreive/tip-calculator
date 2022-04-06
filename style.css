@@ -89,6 +89,11 @@ body {
     cursor: pointer;
     outline: none;
 }
+#button-custom {
+    text-align: center;
+    padding: 0.4rem;
+}
+
 .input-number:focus,
 #button-custom:focus {
     border: 2px solid var(--color-primary-strong-cyan);

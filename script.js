@@ -11,10 +11,10 @@ const resetButton = document.getElementById("button-reset");
 
 //  CODE
 
-const renderSpan = function (parentEl) {
+const renderSpan = function (parentEl, message = "Can't be zero") {
     let inputErrorMessage = document.createElement("span");
     inputErrorMessage.classList.add("error-message");
-    inputErrorMessage.textContent = "Can't be zero";
+    inputErrorMessage.textContent = message;
     parentEl.parentNode.prepend(inputErrorMessage);
 };
 
@@ -63,7 +63,14 @@ tipElement.forEach((button) => {
 });
 
 customTipElement.addEventListener("input", function (e) {
-    calculate(e);
+    let value = parseInt(this.value);
+    if (value < 1) {
+        this.value = 1;
+    } else if (this.value > 1000) {
+        this.value = 1000;
+    } else {
+        calculate(e);
+    }
 });
 
 resetButton.addEventListener("click", function () {

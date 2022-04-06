@@ -8,14 +8,17 @@ const customTipElement = document.getElementById("button-custom");
 const tipsCalculatedElement = document.getElementById("tips");
 const totalSumElement = document.getElementById("total");
 const resetButton = document.getElementById("button-reset");
+const inputsEl = document.querySelectorAll(".input-number");
 
 //  CODE
+let tips;
+let total;
 
-const renderSpan = function (parentEl, message = "Can't be zero") {
+const renderSpan = function (inputField, message = "Can't be zero") {
     let inputErrorMessage = document.createElement("span");
     inputErrorMessage.classList.add("error-message");
     inputErrorMessage.textContent = message;
-    parentEl.parentNode.prepend(inputErrorMessage);
+    inputField.parentNode.prepend(inputErrorMessage);
 };
 
 const calculate = function (e) {
@@ -27,38 +30,33 @@ const calculate = function (e) {
         selectedTips = +e.target.value.trim() / 100;
     }
 
-    if (!personNumberElement.value && !billElement.value) {
-        personNumberElement.classList.add("error");
-        billElement.classList.add("error");
-        renderSpan(personNumberElement);
-        renderSpan(billElement);
-    } else if (!billElement.value) {
-        personNumberElement.classList.remove("error");
-        personNumberElement.parentNode.firstChild.remove();
-        billElement.classList.add("error");
-        renderSpan(billElement);
-    } else if (!personNumberElement.value) {
-        billElement.classList.remove("error");
-        billElement.parentNode.firstChild.remove();
-        personNumberElement.classList.add("error");
-        renderSpan(personNumberElement);
-    } else {
-        personNumberElement.classList.remove("error");
-        billElement.classList.remove("error");
+    tips = parseFloat((bill * selectedTips) / personCount).toFixed(2);
+    total = parseFloat((bill * selectedTips + bill) / personCount).toFixed(2);
 
-        let tips = parseFloat((bill * selectedTips) / personCount).toFixed(2);
-        let total = parseFloat(
-            (bill * selectedTips + bill) / personCount
-        ).toFixed(2);
-
-        tipsCalculatedElement.innerText = "$" + tips;
-        totalSumElement.innerText = "$" + total;
-    }
+    return tips, total;
 };
 
 tipElement.forEach((button) => {
     button.addEventListener("click", function (e) {
-        calculate(e);
+        let validInput = false;
+
+        inputsEl.forEach((input) => {
+            if (input.value === "" || !input || input.value < 0) {
+                validInput = false;
+                input.classList.add("error");
+                renderSpan(input);
+            } else {
+                validInput = true;
+            }
+        });
+
+        if (validInput) {
+            calculate(e);
+            tipsCalculatedElement.innerText = "$" + tips;
+            totalSumElement.innerText = "$" + total;
+        } else if (!validInput) {
+            // renderSpan(inputsEl);
+        }
     });
 });
 
@@ -73,9 +71,29 @@ customTipElement.addEventListener("input", function (e) {
     }
 });
 
-resetButton.addEventListener("click", function () {
+resetButton.addEventListener("click", function (e) {
     totalSumElement.innerText = "$0.00";
     tipsCalculatedElement.innerText = "$0.00";
     billElement.value = "0";
     personNumberElement.value = "0";
+    console.log(e);
 });
+
+// if (personNumberElement.value === "" && billElement.value === "") {
+//     personNumberElement.classList.add("error");
+//     billElement.classList.add("error");
+//     renderSpan(personNumberElement);
+//     renderSpan(billElement);
+// } else if (!billElement.value) {
+//     personNumberElement.classList.remove("error");
+//     personNumberElement.parentNode.firstChild.remove();
+//     billElement.classList.add("error");
+//     renderSpan(billElement);
+// } else if (!personNumberElement.value) {
+//     billElement.classList.remove("error");
+//     billElement.parentNode.firstChild.remove();
+//     personNumberElement.classList.add("error");
+//     renderSpan(personNumberElement);
+// } else {
+//     personNumberElement.classList.remove("error");
+//     billElement.classList.remove("error")}

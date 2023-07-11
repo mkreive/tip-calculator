@@ -20,7 +20,7 @@ body {
     display: grid;
     height: 100vh;
     min-height: 100vh;
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 16px;
     line-height: 1.5rem;
     font-weight: 700;
@@ -47,6 +47,7 @@ body {
     width: 65%;
     padding: 3rem;
     border-radius: 2rem;
+    color: #c1c1c1;
 }
 
 /* SMALL BLOCKS */
@@ -62,7 +63,10 @@ body {
     background-color: var(--color-neutral-very-dark-cyan);
     border-radius: 1rem;
     padding: 3rem;
+    text-transform: uppercase;
+    max-width: max-content;
 }
+
 .row {
     display: grid;
     margin-bottom: 2rem;
@@ -103,7 +107,7 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input[type="number"] {
+input[type='number'] {
     -moz-appearance: textfield;
 }
 #bill {
